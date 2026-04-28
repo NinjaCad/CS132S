@@ -1,3 +1,74 @@
+"""
+    Deliverable: Homework06.py
+ 
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/SortSearch/toctree.htmlLinks to an external site.
+    
+
+    Sample Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework06.py 
+        Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements
+        (NOTE: use of temp variables in swaps replaced by simultaneous assignment)
+
+            N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    
+            (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)
+        10 (      45,      54) (      45,      18) (      27,      45) (      15,      59) (      25,      68) (      22,      10) 
+        100 (    4950,    4890) (    4950,     198) (    2445,    2643) (     449,    1455) (     545,    1344) (     598,     275) 
+        1000 (  499500,  500924) (  499500,    1998) (  250462,  252460) (    7756,   23768) (    8700,   19952) (   11461,    4058) 
+        10000 (49995000,50340250) (49995000,   19998) (25170125,25190123) (  150655,  390665) (  120379,  267232) (  146618,   57021) 
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework06.py 
+        Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements
+        (NOTE: use of temp variables in swaps replaced by simultaneous assignment)
+
+            N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    
+            (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)
+        10 (      45,      56) (      45,      18) (      28,      46) (      14,      58) (      22,      68) (      27,      10) 
+        100 (    4950,    4734) (    4950,     198) (    2367,    2565) (     401,    1407) (     541,    1344) (     607,     264) 
+        1000 (  499500,  517940) (  499500,    1998) (  258970,  260968) (    7354,   23366) (    8713,   19952) (    9889,    4191) 
+        10000 (49995000,50379298) (49995000,   19998) (25189649,25209647) (  151729,  391739) (  120486,  267232) (  162675,   55889) 
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework06.py 
+        Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements
+        (NOTE: use of temp variables in swaps replaced by simultaneous assignment)
+
+            N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    
+            (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)
+        10 (      45,      42) (      45,      18) (      21,      39) (      15,      59) (      22,      68) (      21,      14) 
+        100 (    4950,    4226) (    4950,     198) (    2113,    2311) (     451,    1457) (     541,    1344) (     635,     239) 
+        1000 (  499500,  497704) (  499500,    1998) (  248852,  250850) (    7304,   23316) (    8705,   19952) (   11211,    4044) 
+        10000 (49995000,49981564) (49995000,   19998) (24990782,25010780) (  148918,  388928) (  120491,  267232) (  152763,   56617) 
+        >>> 
+    
+
+    To Do:
+
+        1. Read all about Sorting and Searching in Chapter 5
+        2. Copy the code from the various sorting algorithms listed in the sample output
+        3. Modify the code to replace all swaps via temp variable with swaps via simultaneous assignment
+        4. Modify the code by adding counters for each key comparison and key assignment (swaps count as two key assignments)
+        5. Create code to create a randomly generated list of length 10 (using identical copies of that list for each sorting algorithm), and print the resulting counter values as in the sample output
+        6. Do the same for randomly generated lists of length 100, 1000, and 10000
+        7. Start early, work diligently, and ask me if you have any questions
+        8. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW06:
+        10	Output "Table" Compares/Assigns
+        10	Bubble Sort Implementation
+        10	Selection Sort Implementation
+        10	Insertion Sort Implementation
+        10	Shell Sort Implementation
+        10	Merge Sort Implementation
+        10	Quick Sort Implementation
+        10	Readability
+        20	Quality of Solution
+"""
+
 import random
 
 print("Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements:")
@@ -182,30 +253,33 @@ def partition(a_list, first, last):
 
     return right_mark, compares, assigns
 
+def main():
+    print("    N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    ")
+    print("      (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)")
 
-print("    N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    ")
-print("      (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)")
+    # random lists of 10, 100, 1000, and 10000 elements
+    n10 = [random.randint(0, 100) for _ in range(10)]
+    n100 = [random.randint(0, 100) for _ in range(100)]
+    n1000 = [random.randint(0, 100) for _ in range(1000)]
+    n10000 = [random.randint(0, 100) for _ in range(10000)]
 
-# random lists of 10, 100, 1000, and 10000 elements
-n10 = [random.randint(0, 100) for _ in range(10)]
-n100 = [random.randint(0, 100) for _ in range(100)]
-n1000 = [random.randint(0, 100) for _ in range(1000)]
-n10000 = [random.randint(0, 100) for _ in range(10000)]
+    for n, arr in [(10, n10), (100, n100), (1000, n1000), (10000, n10000)]:
+        bc, ba = bubble_sort(arr[:])
+        sc, sa = selection_sort(arr[:])
+        ic, ia = insertion_sort(arr[:])
+        shc, sha = shell_sort(arr[:])
+        mc, ma = merge_sort(arr[:])
+        qc, qa = quick_sort(arr[:])
 
-for n, arr in [(10, n10), (100, n100), (1000, n1000), (10000, n10000)]:
-    bc, ba = bubble_sort(arr[:])
-    sc, sa = selection_sort(arr[:])
-    ic, ia = insertion_sort(arr[:])
-    shc, sha = shell_sort(arr[:])
-    mc, ma = merge_sort(arr[:])
-    qc, qa = quick_sort(arr[:])
-
-    output = f"{n:>5} "
-    output += f"({bc:>8}, {ba:>8})".ljust(18)
-    output += f"({sc:>8}, {sa:>8})".ljust(20)
-    output += f"({ic:>8}, {ia:>8})".ljust(20)
-    output += f"({shc:>8}, {sha:>8})".ljust(20)
-    output += f"({mc:>8}, {ma:>8})".ljust(20)
-    output += f"({qc:>8}, {qa:>8})".ljust(20)
+        output = f"{n:>5} "
+        output += f"({bc:>8}, {ba:>8})".ljust(18)
+        output += f"({sc:>8}, {sa:>8})".ljust(20)
+        output += f"({ic:>8}, {ia:>8})".ljust(20)
+        output += f"({shc:>8}, {sha:>8})".ljust(20)
+        output += f"({mc:>8}, {ma:>8})".ljust(20)
+        output += f"({qc:>8}, {qa:>8})".ljust(20)
 
     print(output)
+
+if __name__ == "__main__":
+    main()

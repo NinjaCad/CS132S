@@ -1,3 +1,130 @@
+"""
+    Deliverable: Homework07.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Trees/toctree.htmlLinks to an external site.
+        (Sections 6.1-6.11)
+        https://en.wikipedia.org/wiki/Double-ended_priority_queue#OperationsLinks to an external site.
+        https://en.wikipedia.org/wiki/Min-max_heapLinks to an external site.
+
+
+    Sample Input/Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework07.py 
+        ******************************
+        Printing main() source code:
+        ******************************
+        def main():
+            import inspect
+            import random
+
+            print("*" * 30 + "\nPrinting main() source code:\n" + "*" * 30)
+            print(str(inspect.getsource(main)))
+            print("*" * 30 + "\nPrinting main() source output:\n" + "*" * 30)
+
+            print("This program implements a double-ended priority queue class using a min-max heap.")
+            max_range = int(input("Enter max range: "))
+            list_size = int(input("Enter list size: "))
+
+            my_list = [random.randrange(1, max_range+1, 1) for i in range(list_size)]
+            print("Original List:", my_list)
+
+            my_depq = DEPQ(my_list)
+            print("DEPQ min-max heap:", my_depq)
+
+            print("size() = ", my_depq.size())
+            print("is_empty() = ", my_depq.is_empty())
+            print("remove_min() = ", my_depq.remove_min())
+            print("DEPQ min-max heap:", my_depq)
+            print("remove_max() = ", my_depq.remove_max())
+            print("DEPQ min-max heap:", my_depq)
+            print("remove_min() = ", my_depq.remove_min())
+            print("DEPQ min-max heap:", my_depq)
+            print("remove_max() = ", my_depq.remove_max())
+            print("DEPQ min-max heap:", my_depq)
+            print("put(max_range) = ", my_depq.put(max_range))
+            print("DEPQ min-max heap:", my_depq)
+            print("get_min() = ", my_depq.get_min())
+            print("get_max() = ", my_depq.get_max())
+            print("DEPQ min-max heap:", my_depq)
+
+        ******************************
+        Printing main() source output:
+        ******************************
+        This program implements a double-ended priority queue class using a min-max heap.
+        Enter max range: 100
+        Enter list size: 10
+        Original List: [93, 62, 82, 36, 4, 96, 54, 68, 97, 53]
+        DEPQ min-max heap: [4, 97, 96, 36, 53, 82, 54, 68, 62, 93]
+        size() =  10
+        is_empty() =  False
+        remove_min() =  4
+        DEPQ min-max heap: [36, 97, 96, 62, 53, 82, 54, 68, 93]
+        remove_max() =  97
+        DEPQ min-max heap: [36, 93, 96, 62, 53, 82, 54, 68]
+        remove_min() =  36
+        DEPQ min-max heap: [53, 93, 96, 62, 68, 82, 54]
+        remove_max() =  96
+        DEPQ min-max heap: [53, 93, 82, 62, 68, 54]
+        put(max_range) =  100
+        DEPQ min-max heap: [53, 93, 100, 62, 68, 54, 82]
+        get_min() =  53
+        get_max() =  100
+        DEPQ min-max heap: [53, 93, 100, 62, 68, 54, 82]
+        >>> 
+
+
+    To Do:
+
+        1. Read all about Trees and Tree Algorithms in Chapter 6.1-6.10
+        2. Read about Double-Ended Priority Queues and Min-Max Heaps via the provided Wikipedia links
+        3. Implement a Min-Max Heap class
+        4. Implement a Double-Ended Priority Queue class using a Min-Max Heap
+        5. Copy my main() method from the sample output to test your code
+        6. Start early, work diligently, and ask me if you have any questions
+        7. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW07:
+        2.5	class Binary_Min_Max_Heap:
+        2.5	    def __init__(self, alist):
+        2.5	    def is_min_level(self, i):
+        2.5	    def grandparent(self, i):
+        2.5	    def parent(self, i):
+        2.5	    def left_child(self, i):
+        2.5	    def has_children(self, i):
+        2.5	    def has_grandparent(self, i):
+        2.5	    def index_smallest_child_or_grandchild(self, i):
+        2.5	    def index_largest_child_or_grandchild(self, i):
+        2.5	    def push_down_min(self, m):
+        2.5	    def push_down_max(self, m):
+        2.5	    def push_down(self, i):
+        2.5	    def push_up_min(self, i):
+        2.5	    def push_up_max(self, i):
+        2.5	    def push_up(self, i):
+        2.5	    def insert(self, i):
+        2.5	    def find_min(self):
+        2.5	    def find_max(self):
+        2.5	    def remove_min(self):
+        2.5	    def remove_max(self):
+        2.5	    def build_binary_min_max_heap(self,alist):
+        2.5	class DEPQ:
+        2.5	    def __init__(self, alist):
+        2.5	    def is_empty(self):
+        2.5	    def size(self):
+        2.5	    def get_min(self):
+        2.5	    def get_max(self):
+        2.5	    def put(self, i):
+        2.5	    def remove_min(self):
+        2.5	    def remove_max(self):
+        2.5	def main():
+        5	Readability
+        15	Quality of Solution
+"""
+
 class Binary_Min_Max_Heap:
     def __init__(self, alist):
         self._heap = []
@@ -263,4 +390,5 @@ def main():
     print("get_max() = ", my_depq.get_max())
     print("DEPQ min-max heap:", my_depq)
 
-main()
+if __name__ == "__main__":
+    main()

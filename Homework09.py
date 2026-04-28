@@ -1,3 +1,134 @@
+"""
+    Deliverable: Homework09.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Graphs/toctree.htmlLinks to an external site.
+        (Sections 7.1-7.10)
+    
+
+    Sample Input/Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework09.py 
+
+        Welcome to Flipper!  
+
+        You begin with nine coins, showing "heads", arranged in a 3x3 grid:
+
+        HHH    123
+        HHH    456  <= Coin Choice Options 1-9
+        HHH    789
+
+        Choose a coin to flip it over, along with those vertically and 
+        horizontally adjacent.
+
+        The object of the game is to end up with all coins showing "tails".
+
+        If you are stuck, choose Option 0 to show the solution.  :)
+
+
+        HHH
+        HHH
+        HHH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 0 (000000000)
+        Node 0 connectedTo: [11, 23, 38, 89, 186, 200, 308, 416, 464]
+
+        Choose Option 0-9: 2
+
+        TTT
+        HTH
+        HHH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 23 (000010111)
+        Node 23 connectedTo: [0, 28, 49, 78, 173, 223, 291, 439, 455]
+
+        Choose Option 0-9: 7
+
+        TTT
+        TTH
+        TTH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 223 (011011111)
+        Node 223 connectedTo: [23, 101, 134, 200, 212, 249, 271, 383, 491]
+
+        Choose Option 0-9: 5
+
+        THT
+        HHT
+        THH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 101 (001100101)
+        Node 101 connectedTo: [60, 67, 110, 114, 173, 223, 337, 437, 453]
+
+        Choose Option 0-9: 0
+
+        THT
+        HHT
+        THH
+
+        Computer Chooses Option 3:
+
+        TTH
+        HHH
+        THH
+
+        Computer Chooses Option 1:
+
+        HHH
+        THH
+        THH
+
+        Computer Chooses Option 2:
+
+        TTT
+        TTH
+        THH
+
+        Computer Chooses Option 9:
+
+        TTT
+        TTT
+        TTT
+
+        Success!  :)
+        >>>
+    
+
+    To Do:
+
+        1. Read all about Graphs and Breadth First Search in Chapter 7
+        2. Copy the full version of the Queue code from Chapter 3.12
+        3. Copy the full version of the Vertex code and the Graph code from Chapter 7.6
+        4. Copy the bfs() function from Chapter 7.9
+        5. Modify Vertex to add the three new instance variables described in Chapter 7.9
+        6. Write code to create a graph, with each node corresponding to a possible configuration of the board, and each edge corresponding to a single legal move from one possible board configuration to another
+        7. Write code to find the shortest path from any board configuration to the desired end board configuration via breadth-first search
+        8. Write code to display the initial board, Node 0, ("000000000" in binary), with "1" in the ith least significant bit corresponding to the ith coin showing "tails"
+        9. Write code to accept user moves "1"-"9", corresponding to flipping one of the nine coins, plus coins vertically and horizontally adjacent
+        10. Write code to accept user move "0", corresponding to a command to display the shortest path from the current board configuration to the desired end board configuration, Node 511 ("111111111" in binary)
+        11. Start early, work diligently, and ask me if you have any questions
+        12. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW09:
+        4	Use Queue, Vertex, Graph, bfs() code from textbook
+        12	Modify Vertex to add instance variables distance, predecessor, color 
+        12	Create Graph w/Node=board configuration, Edge=single legal move to new configuration
+        12	Find shortest path from any board configuration to end goal via bfs
+        12	Display initial board
+        12	Change configuration via user moves
+        12	Show solution via option 0
+        4	Readability
+        20	Quality of Solution
+"""
+
 class Queue:
     """Queue implementation as a list"""
 
@@ -224,4 +355,5 @@ def main():
             print("Success!  :)")
             break
 
-main()
+if __name__ == "__main__":
+    main()

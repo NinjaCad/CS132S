@@ -1,3 +1,265 @@
+"""
+    Deliverable: Homework08.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Trees/toctree.htmlLinks to an external site.
+        (Sections 6.11-6.18)
+    
+
+    Sample Output:
+
+        >>>  
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework08.py 
+        ******************************
+        Printing main() source code:
+        ******************************
+        def main():
+            import inspect
+            import random
+
+            print("*" * 30 + "\nPrinting main() source code:\n" + "*" * 30)
+            print(str(inspect.getsource(main)))
+            print("*" * 30 + "\nPrinting main() source output:\n" + "*" * 30)
+
+            myTree = BinarySearchTree()
+
+            data = {"CS121P" : "Introduction to Computer Programming",
+                    "CS132S" : "Data Structures & Algorithms",
+                    "CS202H" : "Computer Hardware",
+                    "CS301A" : "Computer Organization & Architecture",
+                    "CS312N" : "Networking Principles & Architecture",
+                    "CS321O" : "Operating Systems",
+                    "CS321P" : "Programming Languages & Systems",
+                    "CS322E" : "Software Engineering",
+                    "CS342D" : "Database Management Systems",
+                    "CS490I" : "Internship",
+                    "CS492S" : "Senior Seminar",
+                    "MA253"  : "Discrete Mathematics"
+                }
+                
+            myRandKeyList = list(data.keys())
+            random.shuffle(myRandKeyList)
+
+            print("Binary Search Tree Insertion Test:")
+            for i in myRandKeyList:
+                print(i,end=' ')
+                myTree[i] = "".join(word[0] for word in data[i].split())
+                
+            print("\n\nBinary Search Tree __str__ Test:")
+            print(myTree)
+            print("\nBinary Search Tree __iter__ Test:")
+            for i in myTree.root:
+                print(i + ":" + myTree[i])
+            
+            print("\nBinary Search Tree Duplicate Key Insertion Test:")
+            random.shuffle(myRandKeyList)
+            for i in myRandKeyList[:2]:
+                print(i,end=' ')
+                myTree[i] = data[i]
+
+            print("\n\nBinary Search Tree __str__ Test:")
+            print(myTree)
+            print("\nBinary Search Tree __iter__ Test:")
+            for i in myTree.root:
+                print(i + ":" + myTree[i])
+            
+            print("\nBinary Search Tree __delitem__ Test:")
+            random.shuffle(myRandKeyList)
+            for i in myRandKeyList[:4]:
+                print(i,end=' ')
+                del myTree[i]
+
+            print("\n\nBinary Search Tree __str__ Test:")
+            print(myTree)
+            print("\nBinary Search Tree __iter__ Test:")
+            for i in myTree.root:
+                print(i + ":" + myTree[i])
+
+        ******************************
+        Printing main() source output:
+        ******************************
+        Binary Search Tree Insertion Test:
+        CS492S CS121P CS490I MA253 CS301A CS132S CS321P CS342D CS322E CS321O CS202H CS312N 
+
+        Binary Search Tree __str__ Test:
+
+        [|K=CS492S|V=SS|L=CS121P|R=MA253|P=|,
+        [|K=CS121P|V=ItCP|L=|R=CS490I|P=CS492S|,
+            [],
+            [|K=CS490I|V=I|L=CS301A|R=|P=CS121P|,
+            [|K=CS301A|V=CO&A|L=CS132S|R=CS321P|P=CS490I|,
+                [|K=CS132S|V=DS&A|L=|R=CS202H|P=CS301A|,
+                [],
+                [|K=CS202H|V=CH|L=|R=|P=CS132S|,
+                    [],
+                    []
+                ]
+                ],
+                [|K=CS321P|V=PL&S|L=CS321O|R=CS342D|P=CS301A|,
+                [|K=CS321O|V=OS|L=CS312N|R=|P=CS321P|,
+                    [|K=CS312N|V=NP&A|L=|R=|P=CS321O|,
+                    [],
+                    []
+                    ],
+                    []
+                ],
+                [|K=CS342D|V=DMS|L=CS322E|R=|P=CS321P|,
+                    [|K=CS322E|V=SE|L=|R=|P=CS342D|,
+                    [],
+                    []
+                    ],
+                    []
+                ]
+                ]
+            ],
+            []
+            ]
+        ],
+        [|K=MA253|V=DM|L=|R=|P=CS492S|,
+            [],
+            []
+        ]
+        ]
+
+        Binary Search Tree __iter__ Test:
+        CS121P:ItCP
+        CS132S:DS&A
+        CS202H:CH
+        CS301A:CO&A
+        CS312N:NP&A
+        CS321O:OS
+        CS321P:PL&S
+        CS322E:SE
+        CS342D:DMS
+        CS490I:I
+        CS492S:SS
+        MA253:DM
+
+        Binary Search Tree Duplicate Key Insertion Test:
+        CS132S CS121P 
+
+        Binary Search Tree __str__ Test:
+
+        [|K=CS492S|V=SS|L=CS121P|R=MA253|P=|,
+        [|K=CS121P|V=Introduction to Computer Programming|L=|R=CS490I|P=CS492S|,
+            [],
+            [|K=CS490I|V=I|L=CS301A|R=|P=CS121P|,
+            [|K=CS301A|V=CO&A|L=CS132S|R=CS321P|P=CS490I|,
+                [|K=CS132S|V=Data Structures & Algorithms|L=|R=CS202H|P=CS301A|,
+                [],
+                [|K=CS202H|V=CH|L=|R=|P=CS132S|,
+                    [],
+                    []
+                ]
+                ],
+                [|K=CS321P|V=PL&S|L=CS321O|R=CS342D|P=CS301A|,
+                [|K=CS321O|V=OS|L=CS312N|R=|P=CS321P|,
+                    [|K=CS312N|V=NP&A|L=|R=|P=CS321O|,
+                    [],
+                    []
+                    ],
+                    []
+                ],
+                [|K=CS342D|V=DMS|L=CS322E|R=|P=CS321P|,
+                    [|K=CS322E|V=SE|L=|R=|P=CS342D|,
+                    [],
+                    []
+                    ],
+                    []
+                ]
+                ]
+            ],
+            []
+            ]
+        ],
+        [|K=MA253|V=DM|L=|R=|P=CS492S|,
+            [],
+            []
+        ]
+        ]
+
+        Binary Search Tree __iter__ Test:
+        CS121P:Introduction to Computer Programming
+        CS132S:Data Structures & Algorithms
+        CS202H:CH
+        CS301A:CO&A
+        CS312N:NP&A
+        CS321O:OS
+        CS321P:PL&S
+        CS322E:SE
+        CS342D:DMS
+        CS490I:I
+        CS492S:SS
+        MA253:DM
+
+        Binary Search Tree __delitem__ Test:
+        CS492S CS312N CS121P CS132S 
+
+        Binary Search Tree __str__ Test:
+
+        [|K=MA253|V=DM|L=CS490I|R=|P=|,
+        [|K=CS490I|V=I|L=CS301A|R=|P=MA253|,
+            [|K=CS301A|V=CO&A|L=CS202H|R=CS321P|P=CS490I|,
+            [|K=CS202H|V=CH|L=|R=|P=CS301A|,
+                [],
+                []
+            ],
+            [|K=CS321P|V=PL&S|L=CS321O|R=CS342D|P=CS301A|,
+                [|K=CS321O|V=OS|L=|R=|P=CS321P|,
+                [],
+                []
+                ],
+                [|K=CS342D|V=DMS|L=CS322E|R=|P=CS321P|,
+                [|K=CS322E|V=SE|L=|R=|P=CS342D|,
+                    [],
+                    []
+                ],
+                []
+                ]
+            ]
+            ],
+            []
+        ],
+        []
+        ]
+
+        Binary Search Tree __iter__ Test:
+        CS202H:CH
+        CS301A:CO&A
+        CS321O:OS
+        CS321P:PL&S
+        CS322E:SE
+        CS342D:DMS
+        CS490I:I
+        MA253:DM
+        >>> 
+    
+
+    To Do:
+
+        1. Read all about Binary Search Trees in Chapter 6
+        2. Copy the full version of the BinarySearchTree and TreeNode classes at the end of Chapter 6.13
+        3. Add a __str__ method to TreeNode using the format given in the sample output below, showing the values of each field
+        4. Add a __str__ method to BinarySearchTree using the level-indented multi-line list-of-lists format given in the sample output below
+        5. Modify the code to handle duplicate keys properly, as described in Programming Exercise 6.5
+        6. Copy my main() method from the sample output to test your code
+        7. Start early, work diligently, and ask me if you have any questions
+        8. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW08:
+        10	BinarySearchTree class
+        10	TreeNode Class
+        15	__str__ BinarySearchTree
+        15	__str__ TreeNode
+        10	Handle Duplicate Keys
+        10	Test Code
+        10	Readability
+        20	Quality of Solution
+"""
+
 class TreeNode:
     def __init__(self, key, value, left=None, right=None, parent=None):
         self.key = key
@@ -291,4 +553,5 @@ def main():
     for i in myTree.root:
         print(i + ":" + myTree[i])
 
-main()
+if __name__ == "__main__":
+    main()
