@@ -1,15 +1,3 @@
-"""
-    To Do:
-
-    1. Read all about Graphs and Depth First Search in Chapter 7
-    2. Copy the full version of the Vertex code and the Graph code from Chapter 7.6
-    3. Copy the DFSGraph code from Chapter 7.15
-    5. Modify Vertex to add the three new instance variables described in Chapter 7.9, as well as the two new instance variables described in Chapter 7.15
-    6. Write code to create a graph, with each node corresponding to a course, and each incoming edge corresponding to a prerequisite for that course
-    7. Write code implementing the topological sort via depth-first search algorithm described in Chapter 7.17
-    8. Write code to read the course prerequisite information from a file, create a corresponding graph, perform a topological sort, and output an ordering consistent with the prerequisite constraints
-"""
-
 class Vertex:
     def __init__(self, key):
         self.key = key
@@ -69,6 +57,50 @@ class Graph:
 
     def __iter__(self):
         return iter(self.vertices.values())
+
+class DFSGraph(Graph):
+    def __init__(self):
+        super().__init__()
+        self.time = 0
+
+    def dfs(self):
+        for vertex in self:
+            vertex.color = "white"
+            vertex.previous = -1
+        for vertex in self:
+            if vertex.color == "white":
+                self.dfs_visit(vertex)
+
+    def dfs_visit(self, start_vertex):
+        start_vertex.color = "gray"
+        self.time = self.time + 1
+        start_vertex.discovery_time = self.time
+        for next_vertex in start_vertex.get_neighbors():
+            if next_vertex.color == "white":
+                next_vertex.previous = start_vertex
+                self.dfs_visit(next_vertex)
+        start_vertex.color = "black"
+        self.time = self.time + 1
+        start_vertex.closing_time = self.time
+
+    def topological_sort(self):
+        self.dfs()
+
+        remaining = list(self.vertices.values())
+        ordered = []
+
+        while len(remaining) > 0:
+            max_i = 0
+            i = 1
+            while i < len(remaining):
+                if remaining[i].closing_time > remaining[max_i].closing_time:
+                    max_i = i
+                i += 1
+
+            ordered.append(remaining[max_i].key)
+            remaining.pop(max_i)
+
+        return ordered
     
 def create_graph():
     print('Reading input file "prereq.txt"...')
@@ -79,7 +111,7 @@ def create_graph():
         print("Error: prereq.txt does not exist or it can't be opened for input.")
         print("Program exiting now...")
 
-    g = Graph()
+    g = DFSGraph()
     with open("./prereq.txt", "r") as infile:
         for line in infile:
             current_line = None
@@ -90,21 +122,33 @@ def create_graph():
             else:
                 print("Processing input file line->" + line)
                 current_line = line.split()
-
+            
+            course = current_line[0].rstrip(":")
             # verticies
-            g.set_vertex(current_line[0])
+            g.set_vertex(course)
             # edges
             if len(current_line) > 1:
                 for prereq in current_line[1:]:
-                    g.add_edge(current_line[0], prereq)
+                    prereq = prereq.rstrip(":")
+                    g.add_edge(prereq, course)
 
     return g
 
 
 def main():
+    print(
+        "This program reads in a list of courses and prerequisites, and determines\n"
+        "a valid ordering subject to prerequisite constraints via topological sort.\n"
+    )
+
     g = create_graph()
-    for v in g:
-        print(v)
+
+    print("Performing topological sort...")
+
+    ordered = g.topological_sort()
+
+    print("Ordered list:")
+    print(ordered)
 
 if __name__ == "__main__":
     main()

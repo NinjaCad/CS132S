@@ -1,0 +1,995 @@
+"""
+    Deliverable: Homework01.py
+    
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Introduction/toctree.htmlLinks to an external site.
+        https://runestone.academy/runestone/books/published/pythonds3/AlgorithmAnalysis/toctree.htmlLinks to an external site.
+
+
+    Sample Input/Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework01.py 
+
+        This program finds the smallest difference between any two elements in a
+        randomly generated list of integers, using two different algorithms with 
+        different Big-O efficiency.
+
+        Enter random min range: 1
+        Enter random max range: 1000000
+        Enter length of list: 10
+
+        Smallest difference: 7505
+        List: [91074, 722243, 691463, 162983, 152492, 83569, 391027, 870040, 215036, 23326]
+        List length: 10
+        Algorithm 1 Time: 2.098083e-05
+        Algorithm 2 Time: 5.960464e-06
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework01.py 
+
+        This program finds the smallest difference between any two elements in a
+        randomly generated list of integers, using two different algorithms with 
+        different Big-O efficiency.
+
+        Enter random min range: 1
+        Enter random max range: 1000000
+        Enter length of list: 100
+
+        Smallest difference: 144
+        List: [908290, 670214, 908817, 897559, 668697, 647719, 899112, 829998, 429621, 220217, 326714, 959549, 693310, 975424, 973376, 701504, 887363, 406603, 264269, 130135, 154715, 815707, 793189, 919654, 807032, 901761, 638601, 815244, 612497, 823443, 566940, 771229, 683677, 960159, 429216, 387256, 160952, 971453, 176323, 983238, 166602, 103120, 663249, 192725, 136408, 61658, 422140, 958717, 626948, 879881, 42249, 891667, 928023, 99613, 739623, 725804, 151860, 965434, 453947, 902460, 424253, 481601, 128834, 897871, 323414, 621917, 489824, 331105, 324960, 203117, 376691, 784245, 310137, 769916, 803201, 420231, 766343, 653194, 870286, 716693, 594839, 696731, 63906, 891811, 24997, 389542, 48047, 691125, 904118, 318901, 455096, 696255, 945092, 257998, 414170, 535009, 890356, 317429, 732662, 332791]
+        List length: 100
+        Algorithm 1 Time: 1.234055e-03
+        Algorithm 2 Time: 2.932549e-05
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework01.py 
+
+        This program finds the smallest difference between any two elements in a
+        randomly generated list of integers, using two different algorithms with 
+        different Big-O efficiency.
+
+        Enter random min range: 1
+        Enter random max range: 1000000
+        Enter length of list: 1000
+
+        Smallest difference: 1
+        Squeezed text (87 lines). 
+        List length: 1000 
+        Algorithm 1 Time: 9.741092e-02 
+        Algorithm 2 Time: 2.269745e-04 
+        >>> RESTART: /Users/jeickemeyer/TMU/Courses/CIS112/_key/Homework01.py 
+        This program finds the smallest difference between any two elements in a 
+        randomly generated list of integers, using two different algorithms with 
+        different Big-O efficiency. 
+
+        Enter random min range: 1 
+        Enter random max range: 1000000 E
+        nter length of list: 10000 
+        Smallest difference: 1 
+        Squeezed text (868 lines). 
+        List length: 10000 
+        Algorithm 1 Time: 8.537766e+00 
+        Algorithm 2 Time: 2.315998e-03 
+        >>>
+
+
+    100	CS132S Rubric HW01:
+        5	Initial I/O
+        15	Algorithm 1 Implementation
+        15	Algorithm 2 Implementation
+        15	Different Big-O Efficiencies
+        15	Time Two Algorithms
+        5	Final Output
+        10	Readability
+        20	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework02.py
+    
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/BasicDS/toctree.htmlLinks to an external site.
+        (Sections 3.1-3.9)
+    
+
+    Sample Input/Output:
+
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework02.py 
+        Enter Prefix Expression: + + A * B C D
+        Converted to Postfix is: A B C * + D +
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework02.py 
+        Enter Prefix Expression: * + A B + C D
+        Converted to Postfix is: A B + C D + *
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework02.py
+        Enter Prefix Expression: + * A B * C D
+        Converted to Postfix is: A B * C D * +
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework02.py
+        Enter Prefix Expression: + + + A B C D
+        Converted to Postfix is: A B + C + D +
+        >>> 
+
+
+    100	CS132S Rubric HW02:
+        10	Initial I/O
+        10	Stack
+        10	Read in Reverse
+        10	Check for Operator
+        20	Correct Operator/Operand Association
+        10	Correct Output
+        10	Readability
+        20	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework03.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/BasicDS/toctree.htmlLinks to an external site.
+        (Sections 3.10-3.14, Section 3.27: Programming Exercise #9)
+
+
+    Sample Input/Output:
+
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework03.py 
+        Enter max range: 99999
+        Enter list size: 10
+
+        Radix Pass 0: 26986 93976 42096 38500  5119 89437 74564 17357  4735 66223 
+        Radix Pass 1: 38500 66223 74564  4735 26986 93976 42096 89437 17357  5119 
+        Radix Pass 2: 38500  5119 66223  4735 89437 17357 74564 93976 26986 42096 
+        Radix Pass 3: 42096  5119 66223 17357 89437 38500 74564  4735 93976 26986 
+        Radix Pass 4: 42096 93976 74564  4735  5119 66223 26986 17357 38500 89437 
+        Radix Pass 5:  4735  5119 17357 26986 38500 42096 66223 74564 89437 93976 
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework03.py 
+        Enter max range: 9999999999
+        Enter list size: 6
+
+        Radix Pass  0:  708339229 5558806485 6709687841 1979780173 5368163781 8060403289 
+        Radix Pass  1: 6709687841 5368163781 1979780173 5558806485  708339229 8060403289 
+        Radix Pass  2:  708339229 6709687841 1979780173 5368163781 5558806485 8060403289 
+        Radix Pass  3: 1979780173  708339229 8060403289 5558806485 5368163781 6709687841 
+        Radix Pass  4: 1979780173 8060403289 5368163781 5558806485 6709687841  708339229 
+        Radix Pass  5: 8060403289 5558806485  708339229 5368163781 1979780173 6709687841 
+        Radix Pass  6: 5368163781  708339229 8060403289 6709687841 1979780173 5558806485 
+        Radix Pass  7: 8060403289 5368163781  708339229 5558806485 6709687841 1979780173 
+        Radix Pass  8:  708339229 6709687841 5558806485 8060403289 5368163781 1979780173 
+        Radix Pass  9: 8060403289 5368163781 5558806485  708339229 6709687841 1979780173 
+        Radix Pass 10:  708339229 1979780173 5368163781 5558806485 6709687841 8060403289 
+        >>> 
+        
+
+        Note: If you manage to align the columns of numbers in exactly the manner above, regardless of the number of digits in each number, that is worth a little bit of extra credit. :)
+
+
+    100	CS132S Rubric HW03:
+        8	Initial I/O
+        8	Random Number Generation
+        8	Main Queue + 1 Queue/Digit
+        8	List of Digit Queues
+        8	Radix Passes Right-to-Left
+        8	Radix Passes One Per Digit
+        8	Radix Stable Sort
+        8	Radix Small Numbers OK
+        8	Print Each Iteration
+        8	Readability
+        20	Quality of Solution
+        5	Extra Credit: Column Spacing
+"""
+
+"""
+    Deliverable: Homework04.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Recursion/toctree.htmlLinks to an external site.
+        (Sections 4.1-4.8)
+
+
+    Sample Input/Output:
+
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework04.py 
+        Enter recursion levels: 0
+        Click turtle screen to exit...
+        >>> 
+        HW04-L0.png
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework04.py 
+        Enter recursion levels: 1
+        Click turtle screen to exit...
+        >>> 
+        HW04-L1.png
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework04.py 
+        Enter recursion levels: 2
+        Click turtle screen to exit...
+        >>> 
+        HW04-L2.png
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework04.py 
+        Enter recursion levels: 3
+        Click turtle screen to exit...
+        >>> 
+        HW04-L3.png
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework04.py 
+        Enter recursion levels: 4
+        Click turtle screen to exit...
+        >>> 
+        HW04-L4.png
+
+
+    100	CS132S Rubric HW04:
+        5	Initial I/O
+        5	Turtle window
+        10	Draw Dots
+        15	Base Case
+        15	Display "I"
+        15	Recursively
+        10	Readability of Code
+        25	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework05.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Recursion/DynamicProgramming.htmlLinks to an external site.
+    
+
+    Sample Input/Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework05.py 
+
+        This program efficiently computes the minimum total number of character 
+        insertion, deletion, and/or substitution operations required to transform 
+        one string into another.
+
+        The String Transformation Operations REquired (STORE) function can be 
+        defined recursively via the following pseudocode:
+
+        if len(string1) == 0:                      # base case: string1 empty
+            store(string1, string2) = len(string2) # this many insertions to string 1 required
+        elif len(string2) == 0:                    # base case: string2 empty
+            store(string1, string2) = len(string1) # this many deletions from string 1 required
+        elif string1[-1] == string2[-1]:           # last characters are the same
+            store(string1, string2) = store(string1[0:-1], string2[0:-1]) # no operation needed
+        else:                                      # last characters differ
+            store(string1, string2) = 1+min(store(string1[0:-1], string2      ), # insertion
+                                            store(string1      , string2[0:-1]), # deletion
+                                            store(string1[0:-1], string2[0:-1])) # substitution
+
+        Rather than computing overlapping subproblem answers repeatedly, this program 
+        computes each of them once, storing them into a table (dynamic programming).
+
+        Enter string1: dynamic
+        Enter string2: programming
+
+                p  r  o  g  r  a  m  m  i  n  g
+            0  1  2  3  4  5  6  7  8  9 10 11
+        d  1  1  2  3  4  5  6  7  8  9 10 11
+        y  2  2  2  3  4  5  6  7  8  9 10 11
+        n  3  3  3  3  4  5  6  7  8  9  9 10
+        a  4  4  4  4  4  5  5  6  7  8  9 10
+        m  5  5  5  5  5  5  6  5  6  7  8  9
+        i  6  6  6  6  6  6  6  6  6  6  7  8
+        c  7  7  7  7  7  7  7  7  7  7  7  8
+
+        store("dynamic", "programming") = 8
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework05.py 
+
+        This program efficiently computes the minimum total number of character 
+        insertion, deletion, and/or substitution operations required to transform 
+        one string into another.
+
+        The String Transformation Operations REquired (STORE) function can be 
+        defined recursively via the following pseudocode:
+
+        if len(string1) == 0:                      # base case: string1 empty
+            store(string1, string2) = len(string2) # this many insertions to string 1 required
+        elif len(string2) == 0:                    # base case: string2 empty
+            store(string1, string2) = len(string1) # this many deletions from string 1 required
+        elif string1[-1] == string2[-1]:           # last characters are the same
+            store(string1, string2) = store(string1[0:-1], string2[0:-1]) # no operation needed
+        else:                                      # last characters differ
+            store(string1, string2) = 1+min(store(string1[0:-1], string2      ), # insertion
+                                            store(string1      , string2[0:-1]), # deletion
+                                            store(string1[0:-1], string2[0:-1])) # substitution
+
+        Rather than computing overlapping subproblem answers repeatedly, this program 
+        computes each of them once, storing them into a table (dynamic programming).
+
+        Enter string1: recursion
+        Enter string2: revision
+
+                r  e  v  i  s  i  o  n
+            0  1  2  3  4  5  6  7  8
+        r  1  0  1  2  3  4  5  6  7
+        e  2  1  0  1  2  3  4  5  6
+        c  3  2  1  1  2  3  4  5  6
+        u  4  3  2  2  2  3  4  5  6
+        r  5  4  3  3  3  3  4  5  6
+        s  6  5  4  4  4  3  4  5  6
+        i  7  6  5  5  4  4  3  4  5
+        o  8  7  6  6  5  5  4  3  4
+        n  9  8  7  7  6  6  5  4  3
+
+        store("recursion", "revision") = 3
+        >>> 
+
+
+    100	CS132S Rubric HW05:
+        4	Initial I/O
+        8	Base Case: string1 empty
+        8	Base Case: string2 empty
+        8	Recurrence Relation: last characters same
+        16	Recurrence Relation: last characters differ
+        16	Use Dynamic Programming Lookup Table, Not Recursion
+        10	Output
+        10	Readability
+        20	Quality of Solution (100% for bottom up, 90% for memoization)
+"""
+
+"""
+    Deliverable: Homework06.py
+ 
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/SortSearch/toctree.htmlLinks to an external site.
+    
+
+    Sample Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework06.py 
+        Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements
+        (NOTE: use of temp variables in swaps replaced by simultaneous assignment)
+
+            N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    
+            (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)
+        10 (      45,      54) (      45,      18) (      27,      45) (      15,      59) (      25,      68) (      22,      10) 
+        100 (    4950,    4890) (    4950,     198) (    2445,    2643) (     449,    1455) (     545,    1344) (     598,     275) 
+        1000 (  499500,  500924) (  499500,    1998) (  250462,  252460) (    7756,   23768) (    8700,   19952) (   11461,    4058) 
+        10000 (49995000,50340250) (49995000,   19998) (25170125,25190123) (  150655,  390665) (  120379,  267232) (  146618,   57021) 
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework06.py 
+        Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements
+        (NOTE: use of temp variables in swaps replaced by simultaneous assignment)
+
+            N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    
+            (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)
+        10 (      45,      56) (      45,      18) (      28,      46) (      14,      58) (      22,      68) (      27,      10) 
+        100 (    4950,    4734) (    4950,     198) (    2367,    2565) (     401,    1407) (     541,    1344) (     607,     264) 
+        1000 (  499500,  517940) (  499500,    1998) (  258970,  260968) (    7354,   23366) (    8713,   19952) (    9889,    4191) 
+        10000 (49995000,50379298) (49995000,   19998) (25189649,25209647) (  151729,  391739) (  120486,  267232) (  162675,   55889) 
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework06.py 
+        Number of list comparisons and assignments for Chapter 5 sorting algorithms on identical random lists of N elements
+        (NOTE: use of temp variables in swaps replaced by simultaneous assignment)
+
+            N     Bubble Sort        Selection Sort      Insertion Sort        Shell Sort          Merge Sort          Quick Sort    
+            (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns) (compares, assigns)
+        10 (      45,      42) (      45,      18) (      21,      39) (      15,      59) (      22,      68) (      21,      14) 
+        100 (    4950,    4226) (    4950,     198) (    2113,    2311) (     451,    1457) (     541,    1344) (     635,     239) 
+        1000 (  499500,  497704) (  499500,    1998) (  248852,  250850) (    7304,   23316) (    8705,   19952) (   11211,    4044) 
+        10000 (49995000,49981564) (49995000,   19998) (24990782,25010780) (  148918,  388928) (  120491,  267232) (  152763,   56617) 
+        >>> 
+    
+
+    To Do:
+
+        1. Read all about Sorting and Searching in Chapter 5
+        2. Copy the code from the various sorting algorithms listed in the sample output
+        3. Modify the code to replace all swaps via temp variable with swaps via simultaneous assignment
+        4. Modify the code by adding counters for each key comparison and key assignment (swaps count as two key assignments)
+        5. Create code to create a randomly generated list of length 10 (using identical copies of that list for each sorting algorithm), and print the resulting counter values as in the sample output
+        6. Do the same for randomly generated lists of length 100, 1000, and 10000
+        7. Start early, work diligently, and ask me if you have any questions
+        8. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW06:
+        10	Output "Table" Compares/Assigns
+        10	Bubble Sort Implementation
+        10	Selection Sort Implementation
+        10	Insertion Sort Implementation
+        10	Shell Sort Implementation
+        10	Merge Sort Implementation
+        10	Quick Sort Implementation
+        10	Readability
+        20	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework07.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Trees/toctree.htmlLinks to an external site.
+        (Sections 6.1-6.11)
+        https://en.wikipedia.org/wiki/Double-ended_priority_queue#OperationsLinks to an external site.
+        https://en.wikipedia.org/wiki/Min-max_heapLinks to an external site.
+
+
+    Sample Input/Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework07.py 
+        ******************************
+        Printing main() source code:
+        ******************************
+        def main():
+            import inspect
+            import random
+
+            print("*" * 30 + "\nPrinting main() source code:\n" + "*" * 30)
+            print(str(inspect.getsource(main)))
+            print("*" * 30 + "\nPrinting main() source output:\n" + "*" * 30)
+
+            print("This program implements a double-ended priority queue class using a min-max heap.")
+            max_range = int(input("Enter max range: "))
+            list_size = int(input("Enter list size: "))
+
+            my_list = [random.randrange(1, max_range+1, 1) for i in range(list_size)]
+            print("Original List:", my_list)
+
+            my_depq = DEPQ(my_list)
+            print("DEPQ min-max heap:", my_depq)
+
+            print("size() = ", my_depq.size())
+            print("is_empty() = ", my_depq.is_empty())
+            print("remove_min() = ", my_depq.remove_min())
+            print("DEPQ min-max heap:", my_depq)
+            print("remove_max() = ", my_depq.remove_max())
+            print("DEPQ min-max heap:", my_depq)
+            print("remove_min() = ", my_depq.remove_min())
+            print("DEPQ min-max heap:", my_depq)
+            print("remove_max() = ", my_depq.remove_max())
+            print("DEPQ min-max heap:", my_depq)
+            print("put(max_range) = ", my_depq.put(max_range))
+            print("DEPQ min-max heap:", my_depq)
+            print("get_min() = ", my_depq.get_min())
+            print("get_max() = ", my_depq.get_max())
+            print("DEPQ min-max heap:", my_depq)
+
+        ******************************
+        Printing main() source output:
+        ******************************
+        This program implements a double-ended priority queue class using a min-max heap.
+        Enter max range: 100
+        Enter list size: 10
+        Original List: [93, 62, 82, 36, 4, 96, 54, 68, 97, 53]
+        DEPQ min-max heap: [4, 97, 96, 36, 53, 82, 54, 68, 62, 93]
+        size() =  10
+        is_empty() =  False
+        remove_min() =  4
+        DEPQ min-max heap: [36, 97, 96, 62, 53, 82, 54, 68, 93]
+        remove_max() =  97
+        DEPQ min-max heap: [36, 93, 96, 62, 53, 82, 54, 68]
+        remove_min() =  36
+        DEPQ min-max heap: [53, 93, 96, 62, 68, 82, 54]
+        remove_max() =  96
+        DEPQ min-max heap: [53, 93, 82, 62, 68, 54]
+        put(max_range) =  100
+        DEPQ min-max heap: [53, 93, 100, 62, 68, 54, 82]
+        get_min() =  53
+        get_max() =  100
+        DEPQ min-max heap: [53, 93, 100, 62, 68, 54, 82]
+        >>> 
+
+
+    To Do:
+
+        1. Read all about Trees and Tree Algorithms in Chapter 6.1-6.10
+        2. Read about Double-Ended Priority Queues and Min-Max Heaps via the provided Wikipedia links
+        3. Implement a Min-Max Heap class
+        4. Implement a Double-Ended Priority Queue class using a Min-Max Heap
+        5. Copy my main() method from the sample output to test your code
+        6. Start early, work diligently, and ask me if you have any questions
+        7. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW07:
+        2.5	class Binary_Min_Max_Heap:
+        2.5	    def __init__(self, alist):
+        2.5	    def is_min_level(self, i):
+        2.5	    def grandparent(self, i):
+        2.5	    def parent(self, i):
+        2.5	    def left_child(self, i):
+        2.5	    def has_children(self, i):
+        2.5	    def has_grandparent(self, i):
+        2.5	    def index_smallest_child_or_grandchild(self, i):
+        2.5	    def index_largest_child_or_grandchild(self, i):
+        2.5	    def push_down_min(self, m):
+        2.5	    def push_down_max(self, m):
+        2.5	    def push_down(self, i):
+        2.5	    def push_up_min(self, i):
+        2.5	    def push_up_max(self, i):
+        2.5	    def push_up(self, i):
+        2.5	    def insert(self, i):
+        2.5	    def find_min(self):
+        2.5	    def find_max(self):
+        2.5	    def remove_min(self):
+        2.5	    def remove_max(self):
+        2.5	    def build_binary_min_max_heap(self,alist):
+        2.5	class DEPQ:
+        2.5	    def __init__(self, alist):
+        2.5	    def is_empty(self):
+        2.5	    def size(self):
+        2.5	    def get_min(self):
+        2.5	    def get_max(self):
+        2.5	    def put(self, i):
+        2.5	    def remove_min(self):
+        2.5	    def remove_max(self):
+        2.5	def main():
+        5	Readability
+        15	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework08.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Trees/toctree.htmlLinks to an external site.
+        (Sections 6.11-6.18)
+    
+
+    Sample Output:
+
+        >>>  
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework08.py 
+        ******************************
+        Printing main() source code:
+        ******************************
+        def main():
+            import inspect
+            import random
+
+            print("*" * 30 + "\nPrinting main() source code:\n" + "*" * 30)
+            print(str(inspect.getsource(main)))
+            print("*" * 30 + "\nPrinting main() source output:\n" + "*" * 30)
+
+            myTree = BinarySearchTree()
+
+            data = {"CS121P" : "Introduction to Computer Programming",
+                    "CS132S" : "Data Structures & Algorithms",
+                    "CS202H" : "Computer Hardware",
+                    "CS301A" : "Computer Organization & Architecture",
+                    "CS312N" : "Networking Principles & Architecture",
+                    "CS321O" : "Operating Systems",
+                    "CS321P" : "Programming Languages & Systems",
+                    "CS322E" : "Software Engineering",
+                    "CS342D" : "Database Management Systems",
+                    "CS490I" : "Internship",
+                    "CS492S" : "Senior Seminar",
+                    "MA253"  : "Discrete Mathematics"
+                }
+                
+            myRandKeyList = list(data.keys())
+            random.shuffle(myRandKeyList)
+
+            print("Binary Search Tree Insertion Test:")
+            for i in myRandKeyList:
+                print(i,end=' ')
+                myTree[i] = "".join(word[0] for word in data[i].split())
+                
+            print("\n\nBinary Search Tree __str__ Test:")
+            print(myTree)
+            print("\nBinary Search Tree __iter__ Test:")
+            for i in myTree.root:
+                print(i + ":" + myTree[i])
+            
+            print("\nBinary Search Tree Duplicate Key Insertion Test:")
+            random.shuffle(myRandKeyList)
+            for i in myRandKeyList[:2]:
+                print(i,end=' ')
+                myTree[i] = data[i]
+
+            print("\n\nBinary Search Tree __str__ Test:")
+            print(myTree)
+            print("\nBinary Search Tree __iter__ Test:")
+            for i in myTree.root:
+                print(i + ":" + myTree[i])
+            
+            print("\nBinary Search Tree __delitem__ Test:")
+            random.shuffle(myRandKeyList)
+            for i in myRandKeyList[:4]:
+                print(i,end=' ')
+                del myTree[i]
+
+            print("\n\nBinary Search Tree __str__ Test:")
+            print(myTree)
+            print("\nBinary Search Tree __iter__ Test:")
+            for i in myTree.root:
+                print(i + ":" + myTree[i])
+
+        ******************************
+        Printing main() source output:
+        ******************************
+        Binary Search Tree Insertion Test:
+        CS492S CS121P CS490I MA253 CS301A CS132S CS321P CS342D CS322E CS321O CS202H CS312N 
+
+        Binary Search Tree __str__ Test:
+
+        [|K=CS492S|V=SS|L=CS121P|R=MA253|P=|,
+        [|K=CS121P|V=ItCP|L=|R=CS490I|P=CS492S|,
+            [],
+            [|K=CS490I|V=I|L=CS301A|R=|P=CS121P|,
+            [|K=CS301A|V=CO&A|L=CS132S|R=CS321P|P=CS490I|,
+                [|K=CS132S|V=DS&A|L=|R=CS202H|P=CS301A|,
+                [],
+                [|K=CS202H|V=CH|L=|R=|P=CS132S|,
+                    [],
+                    []
+                ]
+                ],
+                [|K=CS321P|V=PL&S|L=CS321O|R=CS342D|P=CS301A|,
+                [|K=CS321O|V=OS|L=CS312N|R=|P=CS321P|,
+                    [|K=CS312N|V=NP&A|L=|R=|P=CS321O|,
+                    [],
+                    []
+                    ],
+                    []
+                ],
+                [|K=CS342D|V=DMS|L=CS322E|R=|P=CS321P|,
+                    [|K=CS322E|V=SE|L=|R=|P=CS342D|,
+                    [],
+                    []
+                    ],
+                    []
+                ]
+                ]
+            ],
+            []
+            ]
+        ],
+        [|K=MA253|V=DM|L=|R=|P=CS492S|,
+            [],
+            []
+        ]
+        ]
+
+        Binary Search Tree __iter__ Test:
+        CS121P:ItCP
+        CS132S:DS&A
+        CS202H:CH
+        CS301A:CO&A
+        CS312N:NP&A
+        CS321O:OS
+        CS321P:PL&S
+        CS322E:SE
+        CS342D:DMS
+        CS490I:I
+        CS492S:SS
+        MA253:DM
+
+        Binary Search Tree Duplicate Key Insertion Test:
+        CS132S CS121P 
+
+        Binary Search Tree __str__ Test:
+
+        [|K=CS492S|V=SS|L=CS121P|R=MA253|P=|,
+        [|K=CS121P|V=Introduction to Computer Programming|L=|R=CS490I|P=CS492S|,
+            [],
+            [|K=CS490I|V=I|L=CS301A|R=|P=CS121P|,
+            [|K=CS301A|V=CO&A|L=CS132S|R=CS321P|P=CS490I|,
+                [|K=CS132S|V=Data Structures & Algorithms|L=|R=CS202H|P=CS301A|,
+                [],
+                [|K=CS202H|V=CH|L=|R=|P=CS132S|,
+                    [],
+                    []
+                ]
+                ],
+                [|K=CS321P|V=PL&S|L=CS321O|R=CS342D|P=CS301A|,
+                [|K=CS321O|V=OS|L=CS312N|R=|P=CS321P|,
+                    [|K=CS312N|V=NP&A|L=|R=|P=CS321O|,
+                    [],
+                    []
+                    ],
+                    []
+                ],
+                [|K=CS342D|V=DMS|L=CS322E|R=|P=CS321P|,
+                    [|K=CS322E|V=SE|L=|R=|P=CS342D|,
+                    [],
+                    []
+                    ],
+                    []
+                ]
+                ]
+            ],
+            []
+            ]
+        ],
+        [|K=MA253|V=DM|L=|R=|P=CS492S|,
+            [],
+            []
+        ]
+        ]
+
+        Binary Search Tree __iter__ Test:
+        CS121P:Introduction to Computer Programming
+        CS132S:Data Structures & Algorithms
+        CS202H:CH
+        CS301A:CO&A
+        CS312N:NP&A
+        CS321O:OS
+        CS321P:PL&S
+        CS322E:SE
+        CS342D:DMS
+        CS490I:I
+        CS492S:SS
+        MA253:DM
+
+        Binary Search Tree __delitem__ Test:
+        CS492S CS312N CS121P CS132S 
+
+        Binary Search Tree __str__ Test:
+
+        [|K=MA253|V=DM|L=CS490I|R=|P=|,
+        [|K=CS490I|V=I|L=CS301A|R=|P=MA253|,
+            [|K=CS301A|V=CO&A|L=CS202H|R=CS321P|P=CS490I|,
+            [|K=CS202H|V=CH|L=|R=|P=CS301A|,
+                [],
+                []
+            ],
+            [|K=CS321P|V=PL&S|L=CS321O|R=CS342D|P=CS301A|,
+                [|K=CS321O|V=OS|L=|R=|P=CS321P|,
+                [],
+                []
+                ],
+                [|K=CS342D|V=DMS|L=CS322E|R=|P=CS321P|,
+                [|K=CS322E|V=SE|L=|R=|P=CS342D|,
+                    [],
+                    []
+                ],
+                []
+                ]
+            ]
+            ],
+            []
+        ],
+        []
+        ]
+
+        Binary Search Tree __iter__ Test:
+        CS202H:CH
+        CS301A:CO&A
+        CS321O:OS
+        CS321P:PL&S
+        CS322E:SE
+        CS342D:DMS
+        CS490I:I
+        MA253:DM
+        >>> 
+    
+
+    To Do:
+
+        1. Read all about Binary Search Trees in Chapter 6
+        2. Copy the full version of the BinarySearchTree and TreeNode classes at the end of Chapter 6.13
+        3. Add a __str__ method to TreeNode using the format given in the sample output below, showing the values of each field
+        4. Add a __str__ method to BinarySearchTree using the level-indented multi-line list-of-lists format given in the sample output below
+        5. Modify the code to handle duplicate keys properly, as described in Programming Exercise 6.5
+        6. Copy my main() method from the sample output to test your code
+        7. Start early, work diligently, and ask me if you have any questions
+        8. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW08:
+        10	BinarySearchTree class
+        10	TreeNode Class
+        15	__str__ BinarySearchTree
+        15	__str__ TreeNode
+        10	Handle Duplicate Keys
+        10	Test Code
+        10	Readability
+        20	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework09.py
+
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds3/Graphs/toctree.htmlLinks to an external site.
+        (Sections 7.1-7.10)
+    
+
+    Sample Input/Output:
+
+        >>> 
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework09.py 
+
+        Welcome to Flipper!  
+
+        You begin with nine coins, showing "heads", arranged in a 3x3 grid:
+
+        HHH    123
+        HHH    456  <= Coin Choice Options 1-9
+        HHH    789
+
+        Choose a coin to flip it over, along with those vertically and 
+        horizontally adjacent.
+
+        The object of the game is to end up with all coins showing "tails".
+
+        If you are stuck, choose Option 0 to show the solution.  :)
+
+
+        HHH
+        HHH
+        HHH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 0 (000000000)
+        Node 0 connectedTo: [11, 23, 38, 89, 186, 200, 308, 416, 464]
+
+        Choose Option 0-9: 2
+
+        TTT
+        HTH
+        HHH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 23 (000010111)
+        Node 23 connectedTo: [0, 28, 49, 78, 173, 223, 291, 439, 455]
+
+        Choose Option 0-9: 7
+
+        TTT
+        TTH
+        TTH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 223 (011011111)
+        Node 223 connectedTo: [23, 101, 134, 200, 212, 249, 271, 383, 491]
+
+        Choose Option 0-9: 5
+
+        THT
+        HHT
+        THH
+
+        Option 0: Solve; Options 1-9: Choose Node
+        Node 101 (001100101)
+        Node 101 connectedTo: [60, 67, 110, 114, 173, 223, 337, 437, 453]
+
+        Choose Option 0-9: 0
+
+        THT
+        HHT
+        THH
+
+        Computer Chooses Option 3:
+
+        TTH
+        HHH
+        THH
+
+        Computer Chooses Option 1:
+
+        HHH
+        THH
+        THH
+
+        Computer Chooses Option 2:
+
+        TTT
+        TTH
+        THH
+
+        Computer Chooses Option 9:
+
+        TTT
+        TTT
+        TTT
+
+        Success!  :)
+        >>>
+    
+
+    To Do:
+
+        1. Read all about Graphs and Breadth First Search in Chapter 7
+        2. Copy the full version of the Queue code from Chapter 3.12
+        3. Copy the full version of the Vertex code and the Graph code from Chapter 7.6
+        4. Copy the bfs() function from Chapter 7.9
+        5. Modify Vertex to add the three new instance variables described in Chapter 7.9
+        6. Write code to create a graph, with each node corresponding to a possible configuration of the board, and each edge corresponding to a single legal move from one possible board configuration to another
+        7. Write code to find the shortest path from any board configuration to the desired end board configuration via breadth-first search
+        8. Write code to display the initial board, Node 0, ("000000000" in binary), with "1" in the ith least significant bit corresponding to the ith coin showing "tails"
+        9. Write code to accept user moves "1"-"9", corresponding to flipping one of the nine coins, plus coins vertically and horizontally adjacent
+        10. Write code to accept user move "0", corresponding to a command to display the shortest path from the current board configuration to the desired end board configuration, Node 511 ("111111111" in binary)
+        11. Start early, work diligently, and ask me if you have any questions
+        12. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW09:
+        4	Use Queue, Vertex, Graph, bfs() code from textbook
+        12	Modify Vertex to add instance variables distance, predecessor, color 
+        12	Create Graph w/Node=board configuration, Edge=single legal move to new configuration
+        12	Find shortest path from any board configuration to end goal via bfs
+        12	Display initial board
+        12	Change configuration via user moves
+        12	Show solution via option 0
+        4	Readability
+        20	Quality of Solution
+"""
+
+"""
+    Deliverable: Homework10.py
+    
+
+    References:
+
+        https://runestone.academy/runestone/books/published/pythonds/Graphs/toctree.htmlLinks to an external site.
+        (Sections 7.11-7.17)
+        prereq.txtDownload prereq.txt
+    
+
+    Sample Input/Output:
+
+        >>>  
+        RESTART: /Users/jeickemeyer/TMU/Courses/CS132S/_key/Homework10.py
+        This program reads in a list of courses and prerequisites, and determines
+        a valid ordering subject to prerequisite constraints via topological sort.
+
+        Reading input file "prereq.txt"...
+        Processing input file line->CS121P:
+        Processing input file line->CS122J:
+        Processing input file line->CS132S: CS121P
+        Processing input file line->CS202H:
+        Processing input file line->CS301A: CS132S CS202H
+        Processing input file line->CS312N: CS132S CS202H
+        Processing input file line->CS321O: CS132S CS202H
+        Processing input file line->CS321P: CS132S
+        Processing input file line->CS322A: CS321P
+        Processing input file line->CS322E: CS121P
+        Processing input file line->CS342D:
+        Processing input file line->CS351S: CS312N
+        Processing input file line->CS490I: CS301A CS312N CS321O CS321P CS322E CS342D
+        Processing input file line->CS492S: CS490I
+        Processing input file line->MA253: 
+        Performing topological sort...
+        Ordered list:
+        ['MA253', 'CS342D', 'CS202H', 'CS122J', 'CS121P', 'CS322E', 'CS132S', 'CS321P', 'CS322A', 'CS321O', 'CS312N', 'CS351S', 'CS301A', 'CS490I', 'CS492S']
+
+        >>>
+
+
+    To Do:
+
+        1. Read all about Graphs and Depth First Search in Chapter 7
+        2. Copy the full version of the Vertex code and the Graph code from Chapter 7.6
+        3. Copy the DFSGraph code from Chapter 7.15
+        4. Modify Vertex to add the three new instance variables described in Chapter 7.9, as well as the two new instance variables described in Chapter 7.15
+        5. Write code to create a graph, with each node corresponding to a course, and each incoming edge corresponding to a prerequisite for that course
+        6. Write code implementing the topological sort via depth-first search algorithm described in Chapter 7.17
+        7. Write code to read the course prerequisite information from a file, create a corresponding graph, perform a topological sort, and output an ordering consistent with the prerequisite constraints
+        8. Start early, work diligently, and ask me if you have any questions
+        9. Submit the completed code via Canvas
+    
+
+    100	CS132S Rubric HW10:
+        15	Use Vertex, Graph, DFSGraph
+        15	Modify Vertex to add instance variables discoveryTime, finishTime 
+        15	Create Graph with directed edges from each prerequisite to each course
+        15	Perform topological sort
+        15	Print ordered list
+        5	Readability
+        20	Quality of Solution
+"""
