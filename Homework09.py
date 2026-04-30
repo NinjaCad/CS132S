@@ -187,12 +187,13 @@ def main():
     print("HHH    789\n")
     print("Choose a coin to flip it over, along with those vertically and horizontally adjacent.\n")
     print('The object of the game is to end up with all coins showing "tails".\n')
-    print("If you are stuck, choose Option 0 to show the solution.  :)\n\n")
+    print("If you are stuck, choose Option 0 to show the solution.  :)\n")
 
     g = create_graph()
     state = 0
 
     while True:
+        print()
         binary = format(state, "09b")
         print(display(binary))
         print()
@@ -221,7 +222,10 @@ def main():
         state = update_table(state, answer)
 
         if state == 511:
-            print("Success!  :)")
+            print()
+            binary = format(state, "09b")
+            print(display(binary))
+            print("\nSuccess!  :)")
             break
 
 if __name__ == "__main__":
