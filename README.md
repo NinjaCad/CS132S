@@ -1,6 +1,7 @@
-# CS132S Portfolio (Spring 2026)
+# Data Structures and Algorithms
 
-A portfolio of **TMU CS132S (Data Structures & Algorithms)** homework assignments written in **Python**.
+### Overview
+This repo is organized as one script per python homework assignment (`Homework01.py` … `Homework10.py`) from CS132S at TMU in SP26. The assignments focus on core data structures (stacks, queues, trees, heaps, graphs), algorithm analysis (Big-O and timing), and classic algorithms (radix sort, multiple comparison sorts, BFS/DFS, topological sorting, and dynamic programming).
 
 ## How to run
 Most assignments are standalone scripts:
@@ -30,6 +31,3 @@ Notes:
 ### Assignment references / data
 - **`instructions.txt`** — Assignment writeups, sample I/O, and rubrics for the homework set.
 - **`prereq.txt`** — Input data for `Homework10.py` (course prerequisites).
-
-## Overview
-This repo is organized as one script per homework assignment (`Homework01.py` … `Homework10.py`). The assignments focus on core data structures (stacks, queues, trees, heaps, graphs), algorithm analysis (Big-O and timing), and classic algorithms (radix sort, multiple comparison sorts, BFS/DFS, topological sorting, and dynamic programming).
